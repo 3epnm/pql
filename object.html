@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JISON Example</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    .glyphicon-remove, .glyphicon-ok {
+      display: none;
+      top: 3px;
+    }
+    .alert-success .glyphicon-ok {
+      display: inline-block;
+    } 
+    .alert-danger .glyphicon-remove {
+      display: inline-block;
+    } 
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <div>
+        <h1>PQL</h1>
+        <p class="lead"></p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="query" autocomplete="off" placeholder="Enter PQL">
+            <span class="input-group-addon alert-success">
+              <span class="glyphicon glyphicon-ok"></span>
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </div>
+        </div>
+      </form>
+
+      <div class="message">
+
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <script src="./pql-object.js"></script>
+
+    <script>
+      $('#query').keyup(function (e) {
+        var dsl = $(e.target).val();
+        if (dsl !== '') {
+          try {
+            var parsed = parser.parse(dsl);
+
+            var $msg = $('<pre />');
+            $msg.attr('class', 'alert alert-success');
+            $msg.html(JSON.stringify(parsed, null, 2));
+
+            $('.input-group-addon').addClass('alert-success');
+            $('.input-group-addon').removeClass('alert-danger');
+          } catch (e) {
+            var $msg = $('<pre />');
+            $msg.attr('class', 'alert alert-danger');
+            $msg.html(e.message);
+
+            $('.input-group-addon').removeClass('alert-success');
+            $('.input-group-addon').addClass('alert-danger');
+          }
+
+          $('.message').html($msg);
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
+
