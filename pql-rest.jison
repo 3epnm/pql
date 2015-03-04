@@ -43,15 +43,19 @@ connector
   ;
 
 condition
-  : SHIP_IDENTIFIER stringComparison value { $$ = $1.toLowerCase() + '__ship_name' + $2 + '=' + $3; }
-  | FLEET_IDENTIFIER stringComparison value { $$ = $1.toLowerCase() + '__name' + $2 + '=' + $3; }
-  | IMO_IDENTIFIER numberComparison value { $$ = 'ship__' + $1.toLowerCase() + '_number' + $2 + '=' + $3; }
-  | MMSI_IDENTIFIER numberComparison value { $$ = 'ship__' + $1.toLowerCase() + $2 + '=' + $3; }
+  : SHIP_IDENTIFIER stringComparison stringValue { $$ = $1.toLowerCase() + '__ship_name' + $2 + '=' + $3; }
+  | FLEET_IDENTIFIER stringComparison stringValue { $$ = $1.toLowerCase() + '__name' + $2 + '=' + $3; }
+  | IMO_IDENTIFIER numberComparison numberValue { $$ = 'ship__' + $1.toLowerCase() + '_number' + $2 + '=' + $3; }
+  | MMSI_IDENTIFIER numberComparison numberValue { $$ = 'ship__' + $1.toLowerCase() + $2 + '=' + $3; }
   ;
 
 stringComparison
   : OPERATOR_STARTS_WIDTH { $$ = '__istartswidth'; }
   | OPERATOR_EXACT { $$ = '__iexact'; }
+  ;
+
+stringValue
+  : STRING { $$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) }
   ;
 
 numberComparison
@@ -60,7 +64,6 @@ numberComparison
   | OPERATOR_EXACT { $$ = '__iexact'; }
   ;
 
-value
-  : STRING { $$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) }
-  | NUMERIC { $$ = Number(yytext) }
+numberValue
+  : NUMERIC { $$ = Number(yytext) }
   ;

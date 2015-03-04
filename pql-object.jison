@@ -45,18 +45,22 @@ condition
   | NUMBER_IDENTIFIER numberComparison value { $$ = {field: $1, comparison: $2, value: $3}; }
   ;
 
+
 stringComparison
-  : OPERATOR_STARTS_WIDTH { $$ = 'istartswidth'; }
-  | OPERATOR_EXACT { $$ = 'iexact'; }
+  : OPERATOR_STARTS_WIDTH { $$ = '__istartswidth'; }
+  | OPERATOR_EXACT { $$ = '__iexact'; }
+  ;
+
+stringValue
+  : STRING { $$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) }
   ;
 
 numberComparison
-  : OPERATOR_GT { $$ = 'gt'; }
-  | OPERATOR_LT { $$ = 'lt'; }
-  | OPERATOR_EXACT { $$ = 'iexact'; }
+  : OPERATOR_GT { $$ = '__gt'; }
+  | OPERATOR_LT { $$ = '__lt'; }
+  | OPERATOR_EXACT { $$ = '__iexact'; }
   ;
 
-value
-  : STRING { $$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) }
-  | NUMERIC { $$ = Number(yytext) }
+numberValue
+  : NUMERIC { $$ = Number(yytext) }
   ;

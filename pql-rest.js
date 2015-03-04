@@ -72,12 +72,12 @@
   }
 */
 var parser = (function(){
-var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[1,6],$V3=[1,7],$V4=[5,8],$V5=[1,12],$V6=[1,13],$V7=[1,18],$V8=[1,16],$V9=[1,17],$Va=[1,22],$Vb=[1,23],$Vc=[20,21];
+var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[1,6],$V3=[1,7],$V4=[5,8],$V5=[1,12],$V6=[1,13],$V7=[1,18],$V8=[1,16],$V9=[1,17],$Va=[1,22],$Vb=[1,25];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"SHIP_IDENTIFIER":9,"stringComparison":10,"value":11,"FLEET_IDENTIFIER":12,"IMO_IDENTIFIER":13,"numberComparison":14,"MMSI_IDENTIFIER":15,"OPERATOR_STARTS_WIDTH":16,"OPERATOR_EXACT":17,"OPERATOR_GT":18,"OPERATOR_LT":19,"STRING":20,"NUMERIC":21,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"SHIP_IDENTIFIER",12:"FLEET_IDENTIFIER",13:"IMO_IDENTIFIER",15:"MMSI_IDENTIFIER",16:"OPERATOR_STARTS_WIDTH",17:"OPERATOR_EXACT",18:"OPERATOR_GT",19:"OPERATOR_LT",20:"STRING",21:"NUMERIC"},
-productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[6,3],[6,3],[10,1],[10,1],[14,1],[14,1],[14,1],[11,1],[11,1]],
+symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"SHIP_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"FLEET_IDENTIFIER":12,"IMO_IDENTIFIER":13,"numberComparison":14,"numberValue":15,"MMSI_IDENTIFIER":16,"OPERATOR_STARTS_WIDTH":17,"OPERATOR_EXACT":18,"STRING":19,"OPERATOR_GT":20,"OPERATOR_LT":21,"NUMERIC":22,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"SHIP_IDENTIFIER",12:"FLEET_IDENTIFIER",13:"IMO_IDENTIFIER",16:"MMSI_IDENTIFIER",17:"OPERATOR_STARTS_WIDTH",18:"OPERATOR_EXACT",19:"STRING",20:"OPERATOR_GT",21:"OPERATOR_LT",22:"NUMERIC"},
+productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[6,3],[6,3],[10,1],[10,1],[11,1],[14,1],[14,1],[14,1],[15,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -110,25 +110,25 @@ break;
 case 9:
  this.$ = '__istartswidth'; 
 break;
-case 10: case 13:
+case 10: case 14:
  this.$ = '__iexact'; 
 break;
 case 11:
- this.$ = '__gt'; 
+ this.$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) 
 break;
 case 12:
- this.$ = '__lt'; 
+ this.$ = '__gt'; 
 break;
-case 14:
- this.$ = encodeURIComponent(yytext.substr(1, yytext.length - 2)) 
+case 13:
+ this.$ = '__lt'; 
 break;
 case 15:
  this.$ = Number(yytext) 
 break;
 }
 },
-table: [{3:1,4:2,6:3,9:$V0,12:$V1,13:$V2,15:$V3},{1:[3]},{5:[1,8],7:9,8:[1,10]},o($V4,[2,2]),{10:11,16:$V5,17:$V6},{10:14,16:$V5,17:$V6},{14:15,17:$V7,18:$V8,19:$V9},{14:19,17:$V7,18:$V8,19:$V9},{1:[2,1]},{6:20,9:$V0,12:$V1,13:$V2,15:$V3},o([9,12,13,15],[2,4]),{11:21,20:$Va,21:$Vb},o($Vc,[2,9]),o($Vc,[2,10]),{11:24,20:$Va,21:$Vb},{11:25,20:$Va,21:$Vb},o($Vc,[2,11]),o($Vc,[2,12]),o($Vc,[2,13]),{11:26,20:$Va,21:$Vb},o($V4,[2,3]),o($V4,[2,5]),o($V4,[2,14]),o($V4,[2,15]),o($V4,[2,6]),o($V4,[2,7]),o($V4,[2,8])],
-defaultActions: {8:[2,1]},
+table: [{3:1,4:2,6:3,9:$V0,12:$V1,13:$V2,16:$V3},{1:[3]},{5:[1,8],7:9,8:[1,10]},o($V4,[2,2]),{10:11,17:$V5,18:$V6},{10:14,17:$V5,18:$V6},{14:15,18:$V7,20:$V8,21:$V9},{14:19,18:$V7,20:$V8,21:$V9},{1:[2,1]},{6:20,9:$V0,12:$V1,13:$V2,16:$V3},o([9,12,13,16],[2,4]),{11:21,19:$Va},{19:[2,9]},{19:[2,10]},{11:23,19:$Va},{15:24,22:$Vb},{22:[2,12]},{22:[2,13]},{22:[2,14]},{15:26,22:$Vb},o($V4,[2,3]),o($V4,[2,5]),o($V4,[2,11]),o($V4,[2,6]),o($V4,[2,7]),o($V4,[2,15]),o($V4,[2,8])],
+defaultActions: {8:[2,1],12:[2,9],13:[2,10],16:[2,12],17:[2,13],18:[2,14]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -609,21 +609,21 @@ case 2:return 12
 break;
 case 3:return 13
 break;
-case 4:return 15
+case 4:return 16
 break;
-case 5:return 16
+case 5:return 17
 break;
-case 6:return 17
+case 6:return 18
 break;
-case 7:return 18
+case 7:return 20
 break;
-case 8:return 19
+case 8:return 21
 break;
 case 9:return 8
 break;
-case 10:return 21
+case 10:return 22
 break;
-case 11:return 20
+case 11:return 19
 break;
 case 12:return 5
 break;
@@ -643,3 +643,21 @@ function Parser () {
 Parser.prototype = parser;parser.Parser = Parser;
 return new Parser;
 })();
+
+
+if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
+exports.parser = parser;
+exports.Parser = parser.Parser;
+exports.parse = function () { return parser.parse.apply(parser, arguments); };
+exports.main = function commonjsMain(args) {
+    if (!args[1]) {
+        console.log('Usage: '+args[0]+' FILE');
+        process.exit(1);
+    }
+    var source = require('fs').readFileSync(require('path').normalize(args[1]), "utf8");
+    return exports.parser.parse(source);
+};
+if (typeof module !== 'undefined' && require.main === module) {
+  exports.main(process.argv.slice(1));
+}
+}

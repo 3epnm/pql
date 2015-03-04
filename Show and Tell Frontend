@@ -1,0 +1,42 @@
+Show and Tell Frontend
+
+Title
+Intro past development
+Intro future challenges
+
+Generalisation - Fabric pattern 
+
+List - List component
+List - collection capabilities
+List - controller minimal configuration
+List - current features #1
+List - current festures #2 - *screen recordings*
+List - future
+
+Form - Form component
+Form - model capabilities
+Form - create controller minimal configuration
+Form - update controller minimal configuration
+Form - current features #1
+Form - current festures #2 - *screen recordings*
+Form - future
+
+Quote - Captain Kirk *picture on bridge*
+
+Missing - persistent custom filter
+Jira JQL
+What is a DSL? - *jack sparrow running*
+JISON - install, user
+Lexer - intro
+Lexer - code
+Grammar - intro
+Grammer - code
+PQL - Demo MK2
+PQL - Demo MK1
+
+PQL - future - Domain Model Development 
+PQL - future - Dsl for defining custom list and forms based on capabilities
+
+Thanks and nominate
+
+
