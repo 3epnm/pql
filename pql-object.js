@@ -75,9 +75,9 @@ var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[5,8];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"STRING_IDENTIFIER":9,"stringComparison":10,"value":11,"NUMBER_IDENTIFIER":12,"numberComparison":13,"OPERATOR_STARTS_WIDTH":14,"OPERATOR_EXACT":15,"stringValue":16,"STRING":17,"OPERATOR_GT":18,"OPERATOR_LT":19,"numberValue":20,"NUMERIC":21,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"STRING_IDENTIFIER",11:"value",12:"NUMBER_IDENTIFIER",14:"OPERATOR_STARTS_WIDTH",15:"OPERATOR_EXACT",17:"STRING",18:"OPERATOR_GT",19:"OPERATOR_LT",21:"NUMERIC"},
-productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[10,1],[10,1],[16,1],[13,1],[13,1],[13,1],[20,1]],
+symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"STRING_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"NUMBER_IDENTIFIER":12,"numberComparison":13,"numberValue":14,"OPERATOR_STARTS_WIDTH":15,"OPERATOR_EXACT":16,"STRING":17,"OPERATOR_GT":18,"OPERATOR_LT":19,"NUMERIC":20,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"STRING_IDENTIFIER",12:"NUMBER_IDENTIFIER",15:"OPERATOR_STARTS_WIDTH",16:"OPERATOR_EXACT",17:"STRING",18:"OPERATOR_GT",19:"OPERATOR_LT",20:"NUMERIC"},
+productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[10,1],[10,1],[11,1],[13,1],[13,1],[13,1],[14,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -118,7 +118,7 @@ case 13:
 break;
 }
 },
-table: [{3:1,4:2,6:3,9:$V0,12:$V1},{1:[3]},{5:[1,6],7:7,8:[1,8]},o($V2,[2,2]),{10:9,14:[1,10],15:[1,11]},{13:12,15:[1,15],18:[1,13],19:[1,14]},{1:[2,1]},{6:16,9:$V0,12:$V1},o([9,12],[2,4]),{11:[1,17]},{11:[2,7]},{11:[2,8]},{11:[1,18]},{11:[2,10]},{11:[2,11]},{11:[2,12]},o($V2,[2,3]),o($V2,[2,5]),o($V2,[2,6])],
+table: [{3:1,4:2,6:3,9:$V0,12:$V1},{1:[3]},{5:[1,6],7:7,8:[1,8]},o($V2,[2,2]),{10:9,15:[1,10],16:[1,11]},{13:12,16:[1,15],18:[1,13],19:[1,14]},{1:[2,1]},{6:16,9:$V0,12:$V1},o([9,12],[2,4]),{11:17,17:[1,18]},{17:[2,7]},{17:[2,8]},{14:19,20:[1,20]},{20:[2,10]},{20:[2,11]},{20:[2,12]},o($V2,[2,3]),o($V2,[2,5]),o($V2,[2,9]),o($V2,[2,6]),o($V2,[2,13])],
 defaultActions: {6:[2,1],10:[2,7],11:[2,8],13:[2,10],14:[2,11],15:[2,12]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
@@ -598,9 +598,9 @@ case 1:return 9
 break;
 case 2:return 12
 break;
-case 3:return 14
+case 3:return 15
 break;
-case 4:return 15
+case 4:return 16
 break;
 case 5:return 18
 break;
@@ -608,7 +608,7 @@ case 6:return 19
 break;
 case 7:return 8
 break;
-case 8:return 21
+case 8:return 20
 break;
 case 9:return 17
 break;
