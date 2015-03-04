@@ -41,8 +41,8 @@ connector
   ;
 
 condition
-  : STRING_IDENTIFIER stringComparison value { $$ = {field: $1, comparison: $2, value: $3}; }
-  | NUMBER_IDENTIFIER numberComparison value { $$ = {field: $1, comparison: $2, value: $3}; }
+  : STRING_IDENTIFIER stringComparison stringValue { $$ = {field: $1, comparison: $2, value: $3}; }
+  | NUMBER_IDENTIFIER numberComparison numberValue { $$ = {field: $1, comparison: $2, value: $3}; }
   ;
 
 
