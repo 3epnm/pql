@@ -12,10 +12,10 @@ SHIP                                              return 'SHIP_IDENTIFIER'
 FLEET                                             return 'FLEET_IDENTIFIER'
 IMO                                               return 'IMO_IDENTIFIER'
 MMSI                                              return 'MMSI_IDENTIFIER'
-STARTS\sWITH                                      return 'OPERATOR_STARTS_WIDTH'
+STARTS\sWITH                                      return 'OPERATOR_STARTS_WITH'
 IS                                                return 'OPERATOR_EXACT'
-GREATER\sTHEN                                     return 'OPERATOR_GT'
-LESSER\sTHEN                                      return 'OPERATOR_LT'
+GREATER\sTHAN                                     return 'OPERATOR_GT'
+LESSER\sTHAN                                      return 'OPERATOR_LT'
 AND                                               return 'LOGICAL_AND'
 [0-9]+(\.[0-9]+)?                                 return 'NUMERIC'
 ['](\\.|[^'])*[']                                 return 'STRING'
@@ -50,7 +50,7 @@ condition
   ;
 
 stringComparison
-  : OPERATOR_STARTS_WIDTH { $$ = '__istartswidth'; }
+  : OPERATOR_STARTS_WITH { $$ = '__istartswidth'; }
   | OPERATOR_EXACT { $$ = '__iexact'; }
   ;
 
