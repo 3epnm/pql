@@ -75,8 +75,8 @@ var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[1,6],$V3=[1,7],$V4=[5,8],$V5=[1,12],$V6=[1,13],$V7=[1,18],$V8=[1,16],$V9=[1,17],$Va=[1,22],$Vb=[1,25];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"SHIP_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"FLEET_IDENTIFIER":12,"IMO_IDENTIFIER":13,"numberComparison":14,"numberValue":15,"MMSI_IDENTIFIER":16,"OPERATOR_STARTS_WIDTH":17,"OPERATOR_EXACT":18,"STRING":19,"OPERATOR_GT":20,"OPERATOR_LT":21,"NUMERIC":22,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"SHIP_IDENTIFIER",12:"FLEET_IDENTIFIER",13:"IMO_IDENTIFIER",16:"MMSI_IDENTIFIER",17:"OPERATOR_STARTS_WIDTH",18:"OPERATOR_EXACT",19:"STRING",20:"OPERATOR_GT",21:"OPERATOR_LT",22:"NUMERIC"},
+symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"SHIP_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"FLEET_IDENTIFIER":12,"IMO_IDENTIFIER":13,"numberComparison":14,"numberValue":15,"MMSI_IDENTIFIER":16,"OPERATOR_STARTS_WITH":17,"OPERATOR_EXACT":18,"STRING":19,"OPERATOR_GT":20,"OPERATOR_LT":21,"NUMERIC":22,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"SHIP_IDENTIFIER",12:"FLEET_IDENTIFIER",13:"IMO_IDENTIFIER",16:"MMSI_IDENTIFIER",17:"OPERATOR_STARTS_WITH",18:"OPERATOR_EXACT",19:"STRING",20:"OPERATOR_GT",21:"OPERATOR_LT",22:"NUMERIC"},
 productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[6,3],[6,3],[10,1],[10,1],[11,1],[14,1],[14,1],[14,1],[15,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
@@ -108,7 +108,7 @@ case 8:
  this.$ = 'ship__' + $$[$0-2].toLowerCase() + $$[$0-1] + '=' + $$[$0]; 
 break;
 case 9:
- this.$ = '__istartswidth'; 
+ this.$ = '__istartswith'; 
 break;
 case 10: case 14:
  this.$ = '__iexact'; 
@@ -631,7 +631,7 @@ case 13:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\s+)/i,/^(?:SHIP\b)/i,/^(?:FLEET\b)/i,/^(?:IMO\b)/i,/^(?:MMSI\b)/i,/^(?:STARTS\sWITH\b)/i,/^(?:IS\b)/i,/^(?:GREATER\sTHEN\b)/i,/^(?:LESSER\sTHEN\b)/i,/^(?:AND\b)/i,/^(?:[0-9]+(\.[0-9]+)?)/i,/^(?:['](\\.|[^'])*['])/i,/^(?:$)/i,/^(?:.)/i],
+rules: [/^(?:\s+)/i,/^(?:SHIP\b)/i,/^(?:FLEET\b)/i,/^(?:IMO\b)/i,/^(?:MMSI\b)/i,/^(?:STARTS\sWITH\b)/i,/^(?:IS\b)/i,/^(?:GREATER\sTHAN\b)/i,/^(?:LESSER\sTHAN\b)/i,/^(?:AND\b)/i,/^(?:[0-9]+(\.[0-9]+)?)/i,/^(?:['](\\.|[^'])*['])/i,/^(?:$)/i,/^(?:.)/i],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],"inclusive":true}}
 });
 return lexer;

@@ -50,7 +50,7 @@ condition
   ;
 
 stringComparison
-  : OPERATOR_STARTS_WITH { $$ = '__istartswidth'; }
+  : OPERATOR_STARTS_WITH { $$ = '__istartswith'; }
   | OPERATOR_EXACT { $$ = '__iexact'; }
   ;
 

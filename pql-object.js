@@ -75,8 +75,8 @@ var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[1,4],$V1=[1,5],$V2=[5,8];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"STRING_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"NUMBER_IDENTIFIER":12,"numberComparison":13,"numberValue":14,"OPERATOR_STARTS_WIDTH":15,"OPERATOR_EXACT":16,"STRING":17,"OPERATOR_GT":18,"OPERATOR_LT":19,"NUMERIC":20,"$accept":0,"$end":1},
-terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"STRING_IDENTIFIER",12:"NUMBER_IDENTIFIER",15:"OPERATOR_STARTS_WIDTH",16:"OPERATOR_EXACT",17:"STRING",18:"OPERATOR_GT",19:"OPERATOR_LT",20:"NUMERIC"},
+symbols_: {"error":2,"query":3,"q":4,"EOF":5,"condition":6,"connector":7,"LOGICAL_AND":8,"STRING_IDENTIFIER":9,"stringComparison":10,"stringValue":11,"NUMBER_IDENTIFIER":12,"numberComparison":13,"numberValue":14,"OPERATOR_STARTS_WITH":15,"OPERATOR_EXACT":16,"STRING":17,"OPERATOR_GT":18,"OPERATOR_LT":19,"NUMERIC":20,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",8:"LOGICAL_AND",9:"STRING_IDENTIFIER",12:"NUMBER_IDENTIFIER",15:"OPERATOR_STARTS_WITH",16:"OPERATOR_EXACT",17:"STRING",18:"OPERATOR_GT",19:"OPERATOR_LT",20:"NUMERIC"},
 productions_: [0,[3,2],[4,1],[4,3],[7,1],[6,3],[6,3],[10,1],[10,1],[11,1],[13,1],[13,1],[13,1],[14,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
@@ -99,7 +99,7 @@ case 5: case 6:
  this.$ = {field: $$[$0-2], comparison: $$[$0-1], value: $$[$0]}; 
 break;
 case 7:
- this.$ = '__istartswidth'; 
+ this.$ = '__istartswith'; 
 break;
 case 8: case 12:
  this.$ = '__iexact'; 
@@ -618,7 +618,7 @@ case 11:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\s+)/i,/^(?:SHIP|FLEET\b)/i,/^(?:IMO|MMSI\b)/i,/^(?:STARTS\sWITH\b)/i,/^(?:IS\b)/i,/^(?:GREATER\sTHEN\b)/i,/^(?:LESSER\sTHEN\b)/i,/^(?:AND\b)/i,/^(?:[0-9]+(\.[0-9]+)?)/i,/^(?:['](\\.|[^'])*['])/i,/^(?:$)/i,/^(?:.)/i],
+rules: [/^(?:\s+)/i,/^(?:SHIP|FLEET\b)/i,/^(?:IMO|MMSI\b)/i,/^(?:STARTS\sWITH\b)/i,/^(?:IS\b)/i,/^(?:GREATER\sTHAN\b)/i,/^(?:LESSER\sTHAN\b)/i,/^(?:AND\b)/i,/^(?:[0-9]+(\.[0-9]+)?)/i,/^(?:['](\\.|[^'])*['])/i,/^(?:$)/i,/^(?:.)/i],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11],"inclusive":true}}
 });
 return lexer;
